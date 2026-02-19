@@ -22,8 +22,8 @@ export default async function Home() {
           <span className="text-black/70">Manage your store inventory</span>
         </div>
 
-        <button className="bg-purple-700 px-5 my-3 text-white rounded-sm">
-          <span className="">+</span> Add product
+        <button className="bg-purple-700 px-5 my-3 text-white rounded-sm hover:bg-purple-800 active:bg-purple-900">
+          + Add product
         </button>
       </header>
       <h1>Products</h1>
