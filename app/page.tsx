@@ -1,8 +1,10 @@
+import Header from "@/components/header";
 import type { ProductsResponse } from "./types";
 import Pagination from "../components/Pagination";
+import Table from '@/components/table';
 
-const API_URL = "http://localhost:4000";
-const defaultLimit = "6";
+const API_URL = 'http://localhost:4000';
+const defaultLimit = '6';
 
 export default async function Home({
   searchParams,
@@ -18,14 +20,8 @@ export default async function Home({
 
   return (
     <main>
-      <h1>Products</h1>
-      <div>
-        {products.map((product) => (
-          <h2 key={product.id}>
-            {product.title} - {product.category?.name}
-          </h2>
-        ))}
-      </div>
+      <Header />
+      <Table />
       <Pagination page={page} pages={pages} limit={limit} total={total} />
     </main>
   );
