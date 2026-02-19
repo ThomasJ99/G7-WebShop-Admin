@@ -1,5 +1,5 @@
 import type { ProductsResponse } from "./types";
-import Pagination from "./components/Pagination";
+import Pagination from "../components/Pagination";
 
 const API_URL = "http://localhost:4000";
 const defaultLimit = "6";
