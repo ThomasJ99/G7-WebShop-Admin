@@ -1,4 +1,5 @@
-import type { ProductsResponse } from './types';
+import Header from "@/components/header";
+import type { ProductsResponse } from "./types";
 import Table from '@/components/table';
 
 const API_URL = 'http://localhost:4000';
@@ -13,10 +14,9 @@ export default async function Home() {
     `${API_URL}/products/?_limit=${defaultLimit}&_sort=id&_order=desc&_expand=category`,
   ).then((res) => res.json());
 
-  console.log(products);
-
   return (
     <main>
+      <Header />
       <Table />
     </main>
   );
