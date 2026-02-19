@@ -142,3 +142,4 @@ Namn Signatur Datum
 Victor 2026-02-19
 Thomas 2026-02-19
 Mattias 2026-02-19
+Danial 2026-02-19
