@@ -1,5 +1,5 @@
 import type { ProductsResponse } from './types';
-import Table from '@/app/components/table';
+import Table from '@/components/table';
 
 const API_URL = 'http://localhost:4000';
 const defaultLimit = '6';
