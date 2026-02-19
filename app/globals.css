@@ -1,1 +1,12 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+td,
+th {
+  border: solid 1px rgb(165, 165, 165);
+  padding: 1rem;
+}
+
+table {
+  margin: 1rem;
+  width: calc(100% - 2rem);
+}
