@@ -12,13 +12,28 @@ export default async function Home() {
     `${API_URL}/products/?_limit=${defaultLimit}&_sort=id&_order=desc&_expand=category`,
   ).then((res) => res.json());
 
-
-console.log(products);
+  // console.log(products);
 
   return (
     <main>
+      <header className="flex justify-between container mx-2">
+        <div>
+          <h2 className="text-2xl font-bold">Product management</h2>
+          <span className="text-black/70">Manage your store inventory</span>
+        </div>
+
+        <button className="bg-purple-700 px-5 my-3 text-white rounded-sm">
+          <span className="">+</span> Add product
+        </button>
+      </header>
       <h1>Products</h1>
-      <div>{products.map((product) => <h2 key={product.id}>{product.title} - {product.category?.name}</h2>)}</div>
+      <div>
+        {products.map((product) => (
+          <h2 key={product.id}>
+            {product.title} - {product.category?.name}
+          </h2>
+        ))}
+      </div>
     </main>
   );
 }
