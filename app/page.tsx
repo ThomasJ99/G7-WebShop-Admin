@@ -1,8 +1,9 @@
 import Header from "@/components/header";
 import type { ProductsResponse } from "./types";
+import Table from '@/components/table';
 
-const API_URL = "http://localhost:4000";
-const defaultLimit = "6";
+const API_URL = 'http://localhost:4000';
+const defaultLimit = '6';
 
 export default async function Home() {
   // we use the fetch() method to get the products from the API
@@ -13,19 +14,10 @@ export default async function Home() {
     `${API_URL}/products/?_limit=${defaultLimit}&_sort=id&_order=desc&_expand=category`,
   ).then((res) => res.json());
 
-  // console.log(products);
-
   return (
     <main>
       <Header />
-      <h1>Products</h1>
-      <div>
-        {products.map((product) => (
-          <h2 key={product.id}>
-            {product.title} - {product.category?.name}
-          </h2>
-        ))}
-      </div>
+      <Table />
     </main>
   );
 }
