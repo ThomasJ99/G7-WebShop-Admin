@@ -6,7 +6,7 @@ export default function Sidebar() {
           className=" bg-blue-300"
           aria-label="Sidebar"
         >
-          <div className="h-full  py-4 overflow-y-auto">
+          <div className="h-full py-4 overflow-y-auto">
             <ul className="space-y-2 font-medium">
               <li className="border-b-2">
                 <a href="#" className="px-2 py-1.5 pb-2">
