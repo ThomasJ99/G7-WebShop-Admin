@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Sidebar() {
   return (
@@ -7,18 +8,18 @@ export default function Sidebar() {
         <div className="h-full my-10">
           <ul className="space-y-2 font-medium">
             <li className="mt-2 mb-5 ps-5">
-              <a href="#" className="">
+              <Link href="#" className="">
                 <h1 className="text-2xl font-bold text-pretty leading-none px-3">
                   Webbutiken
                 </h1>
                 <span className="px-3 text-black/50 text-sm">Admin panel</span>
-              </a>
+              </Link>
             </li>
 
             <nav className="border-t-2 pt-4 border-gray-200">
               <ul className="ps-5 me-4 space-y-2">
                 <li>
-                  <a
+                  <Link
                     href="#"
                     className="flex items-center p-2.5 gap-4 bg-purple-700 rounded-md text-white hover:bg-purple-800 active:bg-purple-900"
                   >
@@ -38,11 +39,11 @@ export default function Sidebar() {
                       <path d="M3.054 9.013h17.893" />
                     </svg>
                     <span className="">Products</span>
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     href="#"
                     className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
@@ -61,11 +62,11 @@ export default function Sidebar() {
                       <path d="m19 9-5 5-4-4-3 3" />
                     </svg>
                     <span className="">Analytics</span>
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     href="#"
                     className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
@@ -85,11 +86,11 @@ export default function Sidebar() {
                       <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
                     </svg>
                     <span className="">Orders</span>
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     href="#"
                     className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
@@ -110,11 +111,11 @@ export default function Sidebar() {
                       <circle cx="9" cy="7" r="4" />
                     </svg>{" "}
                     <span className="">Customers</span>
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     href="#"
                     className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
@@ -133,7 +134,7 @@ export default function Sidebar() {
                       <circle cx="12" cy="12" r="3" />
                     </svg>{" "}
                     <span className="">Settings</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
