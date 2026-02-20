@@ -1,11 +1,18 @@
 import type { ProductsResponse } from '../app/types';
 
-export default async function Table() {
+interface Props {
+  searchQuery?: string;
+}
+
+export default async function Table({ searchQuery = "" }: Props) {
   const API_URL = 'http://localhost:4000';
   const defaultLimit = '6';
   const data: ProductsResponse = await fetch(
     `${API_URL}/products/?_limit=${defaultLimit}&_sort=id&_order=desc&_expand=category`,
   ).then((res) => res.json());
+  const filtered = data.products.filter((p) =>
+    p.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   return (
     <>
       <table className="text-center">
@@ -20,7 +27,7 @@ export default async function Table() {
           </tr>
         </thead>
         <tbody>
-          {data.products.map((product) => (
+          {filtered.map((product) => (
             <tr key={product.id} className="">
               <td>{product.title}</td>
               <td>{product.category?.name}</td>

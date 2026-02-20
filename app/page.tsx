@@ -3,12 +3,13 @@ import Header from '../components/header';
 import type { ProductsResponse } from './types';
 import Pagination from '../components/Pagination';
 import Table from '../components/table';
+import SearchBar from '../components/SearchBar';
 
 const API_URL = 'http://localhost:4000';
 const defaultLimit = '6';
 
-export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
-  const { page: pageParam } = await searchParams;
+export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string; search?: string }> }) {
+  const { page: pageParam, search } = await searchParams;
   const currentPage = Number(pageParam) || 1;
 
   const { products, total, page, pages, limit }: ProductsResponse = await fetch(
@@ -27,14 +28,14 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
   return (
     <main>
       <Header />
-        <h2 className="text-2xl font-bold mb-6">Products</h2>
       <Stockoverview
       totalProducts={totalProducts}
       inStock={inStock}
       lowStock={lowStock}
       outOfStock={outOfStock}
       />
-      <Table />
+      <SearchBar />
+      <Table searchQuery={search ?? ""} />
       <Pagination page={page} pages={pages} limit={limit} total={total} />
     </main>
   );
