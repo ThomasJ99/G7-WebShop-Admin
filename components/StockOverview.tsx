@@ -9,7 +9,7 @@ interface Props {
 
 export default function Stockoverview({ totalProducts, inStock, lowStock, outOfStock}: Props) {
   return (
- <div className="grid grid-cols-4 gap-4 mb-8">
+ <div className="grid grid-cols-4 gap-4 mb-8 mt-8">
         <div className="bg-white rounded-2xl p-5 flex items-center justify-between shadow-sm border border-gray-200">
           <div>
             <p className="text-sm text-gray-500 mb-1">Total Products</p>

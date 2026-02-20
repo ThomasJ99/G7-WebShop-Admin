@@ -4,12 +4,13 @@ import Table from "../components/table";
 import Sidebar from "../components/sidebar";
 import Stockoverview from "../components/StockOverview";
 import Pagination from '../components/Pagination';
+import SearchBar from '../components/SearchBar';
 
 const API_URL = "http://localhost:4000";
 const defaultLimit = "6";
 
-export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
-  const { page: pageParam } = await searchParams;
+export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string; search?: string }> }) {
+  const { page: pageParam, search } = await searchParams;
   const currentPage = Number(pageParam) || 1;
 
   const { products, total, page, pages, limit }: ProductsResponse = await fetch(
@@ -37,7 +38,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
           lowStock={lowStock}
           outOfStock={outOfStock}
         />
-        <Table />
+        <SearchBar />
+        <Table searchQuery={search ?? ""} />
         <Pagination page={page} pages={pages} limit={limit} total={total} />
       </div>
     </main>
