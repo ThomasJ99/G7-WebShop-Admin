@@ -1,6 +1,6 @@
 export default function Sidebar() {
   return (
-    <div className="bg-white fixed top-0 left-0 z-99 w-64 h-full flex flex-col border-e border-gray-200">
+    <div className="bg-white z-99 w-64 h-screen flex flex-col border-e border-gray-200">
       <aside id="default-sidebar" className="" aria-label="Sidebar">
         <div className="h-full py-4">
           <ul className="space-y-2 font-medium">
@@ -144,13 +144,11 @@ export default function Sidebar() {
       {/* Login bar */}
       <section className="border-t-2 border-gray-200 mt-auto">
         {/* IMAGE */}
-        <div className="flex gap align-items">
-          <img src="https://i.pravatar.cc/54" alt="" />
-          <div className="">
-            <a href="#" aria-label="" className="flex flex-col">
-              <span>Name</span>
-              <span>Email</span>
-            </a>
+        <div className="flex gap-4 ms-4 me-4 align-items bg-amber-200 my-4">
+          <img src="https://i.pravatar.cc/54" alt="" className="rounded-4xl" />
+          <div aria-label="User Information" className="flex flex-col">
+            <span>Name</span>
+            <span>Email</span>
           </div>
         </div>
       </section>
