@@ -1,12 +1,13 @@
+import Header from "../components/header";
+import type { ProductsResponse } from "./types";
+import Table from "../components/table";
+import Sidebar from "../components/sidebar";
 import Stockoverview from "../components/StockOverview";
-import Header from '../components/header';
-import type { ProductsResponse } from './types';
 import Pagination from '../components/Pagination';
-import Table from '../components/table';
 import SearchBar from '../components/SearchBar';
 
-const API_URL = 'http://localhost:4000';
-const defaultLimit = '6';
+const API_URL = "http://localhost:4000";
+const defaultLimit = "6";
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string; search?: string }> }) {
   const { page: pageParam, search } = await searchParams;
@@ -26,17 +27,21 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
   const outOfStock = allProducts.filter((p) => p.availabilityStatus === "Out of Stock").length;
 
   return (
-    <main>
-      <Header />
-      <Stockoverview
-      totalProducts={totalProducts}
-      inStock={inStock}
-      lowStock={lowStock}
-      outOfStock={outOfStock}
-      />
-      <SearchBar />
-      <Table searchQuery={search ?? ""} />
-      <Pagination page={page} pages={pages} limit={limit} total={total} />
+    <main className="flex">
+      <Sidebar />
+      <div className="grow">
+        <Header />
+        <h2 className="text-2xl font-bold mb-6">Products</h2>
+        <Stockoverview
+          totalProducts={totalProducts}
+          inStock={inStock}
+          lowStock={lowStock}
+          outOfStock={outOfStock}
+        />
+        <SearchBar />
+        <Table searchQuery={search ?? ""} />
+        <Pagination page={page} pages={pages} limit={limit} total={total} />
+      </div>
     </main>
   );
 }
