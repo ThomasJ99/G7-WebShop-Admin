@@ -1,9 +1,10 @@
 import Header from "@/components/header";
 import type { ProductsResponse } from "./types";
-import Table from '@/components/table';
+import Table from "@/components/table";
+import Sidebar from "@/components/sidebar";
 
-const API_URL = 'http://localhost:4000';
-const defaultLimit = '6';
+const API_URL = "http://localhost:4000";
+const defaultLimit = "6";
 
 export default async function Home() {
   // we use the fetch() method to get the products from the API
@@ -16,8 +17,9 @@ export default async function Home() {
 
   return (
     <main>
-      <Header />
-      <Table />
+      {/* <Header /> */}
+      <Sidebar />
+      {/* <Table /> */}
     </main>
   );
 }
