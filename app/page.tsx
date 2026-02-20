@@ -26,18 +26,20 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
   const outOfStock = allProducts.filter((p) => p.availabilityStatus === "Out of Stock").length;
 
   return (
-    <main>
+    <main className="flex">
       <Sidebar />
-      <Header />
+      <div className="grow">
+        <Header />
         <h2 className="text-2xl font-bold mb-6">Products</h2>
-      <Stockoverview
-      totalProducts={totalProducts}
-      inStock={inStock}
-      lowStock={lowStock}
-      outOfStock={outOfStock}
-      />
-      <Table />
-      <Pagination page={page} pages={pages} limit={limit} total={total} />
+        <Stockoverview
+          totalProducts={totalProducts}
+          inStock={inStock}
+          lowStock={lowStock}
+          outOfStock={outOfStock}
+        />
+        <Table />
+        <Pagination page={page} pages={pages} limit={limit} total={total} />
+      </div>
     </main>
   );
 }
