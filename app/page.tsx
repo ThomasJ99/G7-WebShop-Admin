@@ -1,16 +1,12 @@
-import Header from "@/components/header";
-import type { ProductsResponse } from "./types";
-import Pagination from "../components/Pagination";
-import Table from '@/components/table';
+import Header from '../components/header';
+import type { ProductsResponse } from './types';
+import Pagination from '../components/Pagination';
+import Table from '../components/table';
 
 const API_URL = 'http://localhost:4000';
 const defaultLimit = '6';
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Promise<{ page?: string }>;
-}) {
+export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const { page: pageParam } = await searchParams;
   const currentPage = Number(pageParam) || 1;
 

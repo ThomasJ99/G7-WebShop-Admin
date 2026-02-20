@@ -1,4 +1,4 @@
-import type { ProductsResponse } from '@/app/types';
+import type { ProductsResponse } from '../app/types';
 
 export default async function Table() {
   const API_URL = 'http://localhost:4000';
