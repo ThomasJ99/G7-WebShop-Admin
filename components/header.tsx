@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex justify-between px-6 py-4 bg-white border-gray-200 border-2 rounded-tr-lg">
+      <header className="flex justify-between px-6 py-4 bg-white border-gray-200 border-b-2 border-r-2 border-t-2 rounded-tr-lg">
         <div>
           <h2 className="text-2xl font-bold">Product management</h2>
           <span className="text-black/70">Manage your store inventory</span>
