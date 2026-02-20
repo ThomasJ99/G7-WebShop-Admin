@@ -1,6 +1,8 @@
+import Image from "next/image";
+
 export default function Sidebar() {
   return (
-    <div className="bg-white z-99 w-64 h-screen flex flex-col border-e border-gray-200">
+    <div className="bg-white z-99 w-70 h-screen flex flex-col border-e border-gray-200">
       <aside id="default-sidebar" className="" aria-label="Sidebar">
         <div className="h-full py-4">
           <ul className="space-y-2 font-medium">
@@ -20,7 +22,7 @@ export default function Sidebar() {
                 <li>
                   <a
                     href="#"
-                    className="flex items-center px-2 py-2 gap-4 bg-purple-700 rounded-sm text-white hover:bg-purple-800 active:bg-purple-900"
+                    className="flex items-center px-2 py-2 gap-4 bg-purple-700 rounded-md text-white hover:bg-purple-800 active:bg-purple-900"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +46,7 @@ export default function Sidebar() {
                 <li>
                   <a
                     href="#"
-                    className="flex items-center px-2 py-2 gap-4 rounded-sm hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center px-2 py-2 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +69,7 @@ export default function Sidebar() {
                 <li>
                   <a
                     href="#"
-                    className="flex items-center px-2 py-2 gap-4 rounded-sm hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center px-2 py-2 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +93,7 @@ export default function Sidebar() {
                 <li>
                   <a
                     href="#"
-                    className="flex items-center px-2 py-2 gap-4 rounded-sm hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center px-2 py-2 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -144,11 +146,11 @@ export default function Sidebar() {
       {/* Login bar */}
       <section className="border-t-2 border-gray-200 mt-auto">
         {/* IMAGE */}
-        <div className="flex gap-4 ms-4 me-4 align-items bg-amber-200 my-4">
-          <img src="https://i.pravatar.cc/54" alt="" className="rounded-4xl" />
-          <div aria-label="User Information" className="flex flex-col">
-            <span>Name</span>
-            <span>Email</span>
+        <div className="flex gap-4 ms-4 me-4 align-items my-4">
+          <Image src="https://i.pravatar.cc/54" alt="User profile picture" className="rounded-4xl" width={50} height={50} />
+          <div aria-label="User Information" className="flex flex-col leading-tight">
+            <span className="">Admin user</span>
+            <span className="opacity-60 text-sm">admin@webbutiken.se</span>
           </div>
         </div>
       </section>
