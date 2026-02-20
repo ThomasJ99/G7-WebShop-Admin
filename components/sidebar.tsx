@@ -1,13 +1,12 @@
 export default function Sidebar() {
   return (
-    <>
       <div className="bg-pink-300 fixed top-0 left-0 z-99 w-64 h-full flex flex-col border-e">
         <aside
           id="default-sidebar"
           className=" bg-blue-300"
           aria-label="Sidebar"
         >
-          <div className="h-full  py-4 overflow-y-auto ">
+          <div className="h-full  py-4 overflow-y-auto">
             <ul className="space-y-2 font-medium">
               <li className="border-b-2">
                 <a href="#" className="px-2 py-1.5 pb-2">
@@ -76,6 +75,5 @@ export default function Sidebar() {
           </div>
         </section>
       </div>
-    </>
   );
 }
