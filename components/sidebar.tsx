@@ -4,30 +4,28 @@ export default function Sidebar() {
   return (
     <div className="bg-white z-99 w-70 h-screen flex flex-col border-e border-gray-200">
       <aside id="default-sidebar" className="" aria-label="Sidebar">
-        <div className="h-full py-4">
+        <div className="h-full my-10">
           <ul className="space-y-2 font-medium">
-            <li className="border-b-2 border-gray-200 mt-2 mb-5 ps-5">
+            <li className="mt-2 mb-5 ps-5">
               <a href="#" className="">
-                <h1 className="text-2xl font-bold text-pretty leading-tight px-3">
+                <h1 className="text-2xl font-bold text-pretty leading-none px-3">
                   Webbutiken
                 </h1>
-                <span className="px-3 text-black/70 font-light text-sm">
-                  Admin panel
-                </span>
+                <span className="px-3 text-black/50 text-sm">Admin panel</span>
               </a>
             </li>
 
-            <nav>
+            <nav className="border-t-2 pt-4 border-gray-200">
               <ul className="ps-5 me-4 space-y-2">
                 <li>
                   <a
                     href="#"
-                    className="flex items-center px-2 py-2 gap-4 bg-purple-700 rounded-md text-white hover:bg-purple-800 active:bg-purple-900"
+                    className="flex items-center p-2.5 gap-4 bg-purple-700 rounded-md text-white hover:bg-purple-800 active:bg-purple-900"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -46,12 +44,12 @@ export default function Sidebar() {
                 <li>
                   <a
                     href="#"
-                    className="flex items-center px-2 py-2 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -69,12 +67,12 @@ export default function Sidebar() {
                 <li>
                   <a
                     href="#"
-                    className="flex items-center px-2 py-2 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -93,12 +91,12 @@ export default function Sidebar() {
                 <li>
                   <a
                     href="#"
-                    className="flex items-center px-2 py-2 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -118,12 +116,12 @@ export default function Sidebar() {
                 <li>
                   <a
                     href="#"
-                    className="flex items-center px-2 py-2 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -147,8 +145,17 @@ export default function Sidebar() {
       <section className="border-t-2 border-gray-200 mt-auto">
         {/* IMAGE */}
         <div className="flex gap-4 ms-4 me-4 align-items my-4">
-          <Image src="https://i.pravatar.cc/54" alt="User profile picture" className="rounded-4xl" width={50} height={50} />
-          <div aria-label="User Information" className="flex flex-col leading-tight">
+          <Image
+            src="https://i.pravatar.cc/54"
+            alt="User profile picture"
+            className="rounded-4xl"
+            width={50}
+            height={50}
+          />
+          <div
+            aria-label="User Information"
+            className="flex flex-col leading-none pt-2"
+          >
             <span className="">Admin user</span>
             <span className="opacity-60 text-sm">admin@webbutiken.se</span>
           </div>
