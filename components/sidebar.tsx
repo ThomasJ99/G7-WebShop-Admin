@@ -1,16 +1,16 @@
 export default function Sidebar() {
   return (
     <>
-      <div className="bg-pink-300 fixed top-0 left-0 z-40 w-64 h-full">
+      <div className="bg-pink-300 fixed top-0 left-0 z-99 w-64 h-full flex flex-col border-e">
         <aside
           id="default-sidebar"
           className=" bg-blue-300"
           aria-label="Sidebar"
         >
-          <div className="h-full px-3 py-4 overflow-y-auto border-e">
+          <div className="h-full  py-4 overflow-y-auto ">
             <ul className="space-y-2 font-medium">
-              <li>
-                <a href="#" className="px-2 py-1.5">
+              <li className="border-b-2">
+                <a href="#" className="px-2 py-1.5 pb-2">
                   <h1 className="text-2xl font-bold text-pretty leading-tight px-3">
                     Webbutiken
                   </h1>
@@ -63,10 +63,18 @@ export default function Sidebar() {
         </aside>
 
         {/* Login bar */}
-        <div className="">
+        <section className="border-t-2 mt-auto bg-blue-300">
           {/* IMAGE */}
-          <div className="">dwdawdasddwad</div>
-        </div>
+          <div className="flex gap align-items">
+            <img src="https://i.pravatar.cc/54" alt="" />
+            <div className="">
+              <a href="#" aria-label="" className="flex flex-col">
+                <span>Name</span>
+                <span>Email</span>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
