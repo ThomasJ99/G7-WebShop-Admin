@@ -1,7 +1,7 @@
-import Header from "@/components/header";
+import Header from "../components/header";
 import type { ProductsResponse } from "./types";
-import Table from "@/components/table";
-import Sidebar from "@/components/sidebar";
+import Table from "../components/table";
+import Sidebar from "../components/sidebar";
 
 const API_URL = "http://localhost:4000";
 const defaultLimit = "6";
@@ -17,9 +17,9 @@ export default async function Home() {
 
   return (
     <main>
-      {/* <Header /> */}
+      <Header />
+      <Table />
       <Sidebar />
-      {/* <Table /> */}
     </main>
   );
 }
