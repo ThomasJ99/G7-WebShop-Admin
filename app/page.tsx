@@ -1,13 +1,13 @@
-import Header from "../components/header";
-import type { ProductsResponse } from "./types";
-import Table from "../components/table";
-import Sidebar from "../components/sidebar";
-import Stockoverview from "../components/StockOverview";
+import Header from '../components/header';
+import type { ProductsResponse } from './types';
+import Table from '../components/table';
+import Sidebar from '../components/sidebar';
+import Stockoverview from '../components/StockOverview';
 import Pagination from '../components/Pagination';
 import SearchBar from '../components/SearchBar';
 
-const API_URL = "http://localhost:4000";
-const defaultLimit = "6";
+const API_URL = 'http://localhost:4000';
+const defaultLimit = '6';
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ page?: string; search?: string }> }) {
   const { page: pageParam, search } = await searchParams;
@@ -17,14 +17,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
     `${API_URL}/products/?_page=${currentPage}&_limit=${defaultLimit}&_sort=id&_order=desc&_expand=category`,
   ).then((res) => res.json());
 
-  const { products: allProducts }: ProductsResponse = await fetch(
-    `${API_URL}/products`,
-  ). then((res) => res.json());
+  const { products: allProducts }: ProductsResponse = await fetch(`${API_URL}/products`).then((res) => res.json());
 
   const totalProducts = allProducts.length;
-  const inStock = allProducts.filter((p) => p.availabilityStatus === "In Stock").length;
-  const lowStock = allProducts.filter((p) => p.availabilityStatus === "Low Stock").length;
-  const outOfStock = allProducts.filter((p) => p.availabilityStatus === "Out of Stock").length;
+  const inStock = allProducts.filter((p) => p.availabilityStatus === 'In Stock').length;
+  const lowStock = allProducts.filter((p) => p.availabilityStatus === 'Low Stock').length;
+  const outOfStock = allProducts.filter((p) => p.availabilityStatus === 'Out of Stock').length;
 
   return (
     <main className="flex">
@@ -32,14 +30,9 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
       <div className="grow">
         <Header />
         <h2 className="text-2xl font-bold mb-6">Products</h2>
-        <Stockoverview
-          totalProducts={totalProducts}
-          inStock={inStock}
-          lowStock={lowStock}
-          outOfStock={outOfStock}
-        />
+        <Stockoverview totalProducts={totalProducts} inStock={inStock} lowStock={lowStock} outOfStock={outOfStock} />
         <SearchBar />
-        <Table searchQuery={search ?? ""} />
+        <Table searchQuery={search ?? ''} products={products} />
         <Pagination page={page} pages={pages} limit={limit} total={total} />
       </div>
     </main>
