@@ -1,8 +1,13 @@
-import { ChevronDown } from "lucide-react";
+"use client";
+
 import { Category } from "../app/types";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
-export default function CategoryFilter() {
+export default function CategoryFilter({
+  categories,
+}: {
+  categories: Category[];
+}) {
   // Reads the current URL path name after hostname/...
   const searchParams = useSearchParams();
 
@@ -12,22 +17,43 @@ export default function CategoryFilter() {
   // Gets the current url limit
   const router = useRouter();
 
+  //   Allows the current selected category to be the one selected in our options
+  const selectedCategory = searchParams.get("category") || "";
+
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    // Click a category to change the url and show those products
-  }
+
+    const params = new URLSearchParams(searchParams.toString());
+    const value = event.target.value;
+
+    //
+    if (value) params.set("category", value);
+    else params.delete("category");
+
+    router.push(`${pathName}?${params}`);
+  };
 
   return (
     <form className="">
-      <label
-        htmlFor="categories"
-        className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm text-gray-600"
-      >
-        All categories <ChevronDown className="w-4 h-4" />
-      </label>
+      <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm text-gray-600 ">
+        <label htmlFor="categories" className="sr-only">
+          Category
+        </label>
 
-      <select name="category-select" id="categories">
-        <option value="">{/*Loop through all categories with .map, needs key, value*/}</option>
-      </select>
+        <select
+          name="category-select"
+          id="categories"
+          value={selectedCategory}
+          onChange={handleChange}
+          className=""
+        >
+            <option value="">All Categories</option>
+          {categories.map((category) => (
+            <option key={`category-select${category.id}`} value={category.id}>
+              {category.name}
+            </option>
+          ))}
+        </select>
+      </div>
     </form>
   );
 }
