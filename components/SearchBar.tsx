@@ -14,7 +14,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="flex gap-3 mb-6">
+    <div className="flex gap-3 mb-6 ml-4 mr-4" >
       <div className="flex items-center gap-2 flex-1 bg-white border border-gray-200 rounded-xl px-4 py-2">
         <Search className="w-4 h-4 text-gray-400" />
         <input
