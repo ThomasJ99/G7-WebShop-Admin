@@ -52,7 +52,6 @@ export default async function Home({
       <Sidebar />
       <div className="grow">
         <Header />
-        <h2 className="text-2xl font-bold mb-6">Products</h2>
         <Stockoverview
           totalProducts={totalProducts}
           inStock={inStock}
