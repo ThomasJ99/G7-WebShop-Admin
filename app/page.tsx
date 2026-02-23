@@ -59,8 +59,8 @@ export default async function Home({
           lowStock={lowStock}
           outOfStock={outOfStock}
         />
-        
-        <div className="flex gap-3 mb-6">
+
+        <div className="flex gap-3 mb-6 mx-4">
           <SearchBar />
           <CategoryFilter categories={categories} />
 
