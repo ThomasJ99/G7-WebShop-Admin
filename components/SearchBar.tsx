@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { Search, ChevronDown, Filter } from "lucide-react";
+import CategoryFilter from "./category-filter";
 
 export default function SearchBar() {
   const router = useRouter();
@@ -25,9 +26,9 @@ export default function SearchBar() {
           className="flex-1 outline-none text-sm text-gray-700"
         />
       </div>
-      <button className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm text-gray-600">
-        All categories <ChevronDown className="w-4 h-4" />
-      </button>
+
+      <CategoryFilter/>
+
       <button className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm text-gray-600">
         All status <ChevronDown className="w-4 h-4" />
       </button>
