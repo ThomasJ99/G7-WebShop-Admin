@@ -175,13 +175,13 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-2 border border-gray-300 rounded hover:bg-gray-100"
+              className="px-4 py-1.5 text-sm border border-gray-300 rounded hover:bg-gray-100"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-6 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+              className="px-4 py-1.5 text-sm bg-red-600 text-white rounded hover:bg-red-700"
             >
               Save
             </button>

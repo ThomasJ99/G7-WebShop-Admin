@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "mock-server": "json-server --watch server/products.json --middlewares server/middleware.js --port 4000",
+    "mock-server": "json-server --watch server/products.json --middlewares server/middleware.js --port 4000 --host 0.0.0.0",
     "dev:full": "concurrently \"npm run dev\" \"npm run mock-server\"",
     "build": "next build",
     "start": "next start",
