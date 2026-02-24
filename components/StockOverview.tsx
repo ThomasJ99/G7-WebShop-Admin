@@ -18,7 +18,7 @@ export default function Stockoverview({
       <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">
         <div>
           <p className="text-sm text-gray-500 mb-1">Total Products</p>
-          <p className="text-2xl font-bold text-gray-800">{totalProducts}</p>
+          <p className="text-3xl font-bold text-gray-800">{totalProducts}</p>
         </div>
         <div className="bg-purple-100 rounded-xl p-3">
           <Package className="w-6 h-6 text-purple-500" />
@@ -27,7 +27,7 @@ export default function Stockoverview({
       <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">
         <div>
           <p className="text-sm text-gray-500 mb-1">In stock</p>
-          <p className="text-2xl font-bold text-gray-800">{inStock}</p>
+          <p className="text-3xl font-bold text-gray-800">{inStock}</p>
         </div>
         <div className="bg-green-500 rounded-xl p-3">
           <CircleCheckBig className="w-6 h-6 text-green-700" />
@@ -36,7 +36,7 @@ export default function Stockoverview({
       <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">
         <div>
           <p className="text-sm text-gray-500 mb-1">Low stock</p>
-          <p className="text-2xl font-bold text-gray-800">{lowStock}</p>
+          <p className="text-3xl font-bold text-gray-800">{lowStock}</p>
         </div>
         <div className="bg-orange-100 rounded-xl p-3">
           <TriangleAlert className="w-6 h-6 text-orange-400" />
@@ -45,7 +45,7 @@ export default function Stockoverview({
       <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">
         <div>
           <p className="text-sm text-gray-500 mb-1">Out of stock</p>
-          <p className="text-2xl font-bold text-gray-800">{outOfStock}</p>
+          <p className="text-3xl font-bold text-gray-800">{outOfStock}</p>
         </div>
         <div className="bg-red-100 rounded-xl p-3">
           <CircleX className="w-6 h-6 text-red-400" />
