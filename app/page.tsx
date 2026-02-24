@@ -60,7 +60,7 @@ export default async function Home({
             outOfStock={outOfStock}
           />
 
-          <div className="flex gap-3 mb-8 bg-white p-5 rounded-2xl border-2 border-gray-200 mx-8">
+          <div className="flex gap-3 mb-8 bg-white p-5 rounded-2xl border-2 border-gray-200">
             <SearchBar />
             <CategoryFilter categories={categories} />
 
