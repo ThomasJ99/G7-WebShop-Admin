@@ -21,7 +21,6 @@ export default function CategoryFilter({
   const selectedCategory = searchParams.get("category") || "";
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-
     const params = new URLSearchParams(searchParams.toString());
     const value = event.target.value;
 
@@ -34,7 +33,7 @@ export default function CategoryFilter({
 
   return (
     <form className="">
-      <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm text-gray-600 ">
+      <div className="flex items-center gap-2 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold ">
         <label htmlFor="categories" className="sr-only">
           Category
         </label>
@@ -46,7 +45,7 @@ export default function CategoryFilter({
           onChange={handleChange}
           className=""
         >
-            <option value="">All Categories</option>
+          <option value="">All categories</option>
           {categories.map((category) => (
             <option key={`category-select${category.id}`} value={category.id}>
               {category.name}
