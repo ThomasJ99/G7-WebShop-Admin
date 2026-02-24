@@ -65,7 +65,7 @@ export default async function Home({
             <SearchBar />
             <CategoryFilter categories={categories} />
 
-            <button className="flex items-center gap-8 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold">
+            <button className="flex items-center gap-8 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold text-nowrap">
               All status <ChevronDown className="w-4 h-4" />
             </button>
             <button className="flex items-center gap-3 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold">
