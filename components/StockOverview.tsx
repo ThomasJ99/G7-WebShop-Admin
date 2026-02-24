@@ -29,7 +29,7 @@ export default function Stockoverview({
           <p className="text-sm text-gray-500 mb-1">In stock</p>
           <p className="text-3xl font-bold text-gray-800">{inStock}</p>
         </div>
-        <div className="bg-green-500 rounded-xl p-3">
+        <div className="bg-green-100 rounded-xl p-3">
           <CircleCheckBig className="w-6 h-6 text-green-700" />
         </div>
       </div>
