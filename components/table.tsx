@@ -1,6 +1,7 @@
 import type { Product } from '../app/types';
-import { Trash, SquarePen } from 'lucide-react';
+import { SquarePen } from 'lucide-react';
 import Image from 'next/image';
+import { DeleteForm } from './delete-form';
 
 interface Props {
   searchQuery?: string;
@@ -49,9 +50,7 @@ export default async function Table({ searchQuery = '', products }: Props) {
                 <button className="pr-3">
                   <SquarePen className="text-purple-700 w-6" />
                 </button>
-                <button>
-                  <Trash className="text-red-600 w-6" />
-                </button>
+                  <DeleteForm id={''}/>
               </td>
             </tr>
           ))}
