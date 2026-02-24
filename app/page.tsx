@@ -40,18 +40,20 @@ export default async function Home({
   const outOfStock = allProducts.filter((p) => p.availabilityStatus === 'Out of Stock').length;
 
   return (
-    <main className="flex">
+    <main className="flex bg-gray-100">
       <Sidebar />
       <div className="grow">
         <Header />
+        <div className="mx-8">
+
         <Stockoverview
           totalProducts={totalProducts}
           inStock={inStock}
           lowStock={lowStock}
           outOfStock={outOfStock}
-        />
+          />
 
-        <div className="flex gap-3 mb-6 mx-4">
+        <div className="flex gap-3 mb-6 mx-8">
           <SearchBar />
           <CategoryFilter categories={categories} />
 
@@ -64,6 +66,7 @@ export default async function Home({
         </div>
         <Table searchQuery={search ?? ''} products={products} />
         <Pagination page={page} pages={pages} limit={limit} total={total} />
+          </div>
       </div>
     </main>
   );
