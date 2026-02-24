@@ -5,11 +5,12 @@ import Sidebar from "../components/sidebar";
 import Stockoverview from "../components/StockOverview";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
-import { ChevronDown, Filter } from "lucide-react";
+import { Filter } from "lucide-react";
 import CategoryFilter from "../components/category-filter";
+import FilterStockStatus from "../components/filter-stock-status";
 
-const API_URL = 'http://localhost:4000';
-const defaultLimit = '6';
+const API_URL = "http://localhost:4000";
+const defaultLimit = "6";
 
 export default async function Home({
   searchParams,
@@ -18,9 +19,10 @@ export default async function Home({
     page?: string;
     search?: string;
     category?: string;
+    stock?: string;
   }>;
 }) {
-  const { page: pageParam, search, category } = await searchParams;
+  const { page: pageParam, search, category, stock } = await searchParams;
   const currentPage = Number(pageParam) || 1;
 
   const categories: Category[] = await fetch(`${API_URL}/categories`).then(
@@ -32,12 +34,20 @@ export default async function Home({
   ).then((res) => res.json());
 
   // TODO: Put the fetch and totalproducts thing in 1 function to encapsulate or a new component
-  const { products: allProducts }: ProductsResponse = await fetch(`${API_URL}/products`).then((res) => res.json());
+  const { products: allProducts }: ProductsResponse = await fetch(
+    `${API_URL}/products`,
+  ).then((res) => res.json());
 
   const totalProducts = allProducts.length;
-  const inStock = allProducts.filter((p) => p.availabilityStatus === 'In Stock').length;
-  const lowStock = allProducts.filter((p) => p.availabilityStatus === 'Low Stock').length;
-  const outOfStock = allProducts.filter((p) => p.availabilityStatus === 'Out of Stock').length;
+  const inStock = allProducts.filter(
+    (p) => p.availabilityStatus === "In Stock",
+  ).length;
+  const lowStock = allProducts.filter(
+    (p) => p.availabilityStatus === "Low Stock",
+  ).length;
+  const outOfStock = allProducts.filter(
+    (p) => p.availabilityStatus === "Out of Stock",
+  ).length;
 
   return (
     <main className="flex">
@@ -54,15 +64,12 @@ export default async function Home({
         <div className="flex gap-3 mb-6 mx-4">
           <SearchBar />
           <CategoryFilter categories={categories} />
-
-          <button className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm text-gray-600">
-            All status <ChevronDown className="w-4 h-4" />
-          </button>
+          {/* <FilterStockStatus stock={stock} /> */}
           <button className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm text-gray-600">
             <Filter className="w-4 h-4" /> Filter
           </button>
         </div>
-        <Table searchQuery={search ?? ''} products={products} />
+        <Table searchQuery={search ?? ""} products={products} />
         <Pagination page={page} pages={pages} limit={limit} total={total} />
       </div>
     </main>
