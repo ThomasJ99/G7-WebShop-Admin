@@ -15,7 +15,7 @@ export default function Stockoverview({
 }: Props) {
   return (
     <section className="grid grid-cols-4 gap-6 my-8 pb-4 ">
-      <div className="bg-white rounded-2xl p-6 flex items-center justify-between shadow-sm border border-gray-200">
+      <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">
         <div>
           <p className="text-sm text-gray-500 mb-1">Total Products</p>
           <p className="text-2xl font-bold text-gray-800">{totalProducts}</p>
@@ -24,7 +24,7 @@ export default function Stockoverview({
           <Package className="w-6 h-6 text-purple-500" />
         </div>
       </div>
-      <div className="bg-white rounded-2xl p-6 flex items-center justify-between shadow-sm border border-gray-200">
+      <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">
         <div>
           <p className="text-sm text-gray-500 mb-1">In stock</p>
           <p className="text-2xl font-bold text-gray-800">{inStock}</p>
@@ -33,7 +33,7 @@ export default function Stockoverview({
           <CircleCheckBig className="w-6 h-6 text-green-700" />
         </div>
       </div>
-      <div className="bg-white rounded-2xl p-6 flex items-center justify-between shadow-sm border border-gray-200">
+      <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">
         <div>
           <p className="text-sm text-gray-500 mb-1">Low stock</p>
           <p className="text-2xl font-bold text-gray-800">{lowStock}</p>
@@ -42,7 +42,7 @@ export default function Stockoverview({
           <TriangleAlert className="w-6 h-6 text-orange-400" />
         </div>
       </div>
-      <div className="bg-white rounded-2xl p-6 flex items-center justify-between shadow-sm border border-gray-200">
+      <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">
         <div>
           <p className="text-sm text-gray-500 mb-1">Out of stock</p>
           <p className="text-2xl font-bold text-gray-800">{outOfStock}</p>
