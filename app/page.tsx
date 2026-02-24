@@ -5,7 +5,7 @@ import Sidebar from "../components/sidebar";
 import Stockoverview from "../components/StockOverview";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
-import { ChevronDown, Filter } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import CategoryFilter from "../components/category-filter";
 
 const API_URL = "http://localhost:4000";
@@ -69,7 +69,20 @@ export default async function Home({
               All status <ChevronDown className="w-4 h-4" />
             </button>
             <button className="flex items-center gap-3 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold">
-              <Filter className="w-4 h-4" /> Filter
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z" />
+              </svg>{" "}
+              Filter
             </button>
           </div>
           <Table searchQuery={search ?? ""} products={products} />
