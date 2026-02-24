@@ -14,14 +14,14 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="flex items-center gap-2 flex-1 bg-white border border-gray-200 rounded-xl px-4 py-2">
+    <div className="flex items-center gap-2 flex-1 bg-white border border-gray-400 rounded-md px-2 py-1">
       <Search className="w-4 h-4 text-gray-400" />
       <input
         type="text"
         placeholder="Search products..."
         defaultValue={searchParams.get("search") ?? ""}
         onChange={handleSearch}
-        className="flex-1 outline-none text-sm text-gray-700"
+        className="outline-none"
       />
     </div>
   );
