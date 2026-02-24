@@ -60,8 +60,7 @@ export default async function Home({
             outOfStock={outOfStock}
           />
 
-          {/* Revert line below by adding mx-8 when im done */}
-          <div className="flex gap-3 mb-8 bg-white p-5 rounded-2xl border-2 border-gray-200">
+          <div className="flex gap-3 mb-8 bg-white p-5 rounded-2xl border-2 border-gray-200 mx-8">
             <SearchBar />
             <CategoryFilter categories={categories} />
 
