@@ -32,7 +32,7 @@ export default function Table({ searchQuery = '', products }: Props) {
           {filtered.map((product) => (
             <tr key={product.id} className="">
               <td className="flex">
-                <Image src={product.thumbnail} alt={product.title} width={50} height={50}></Image>
+                <Image src={product.thumbnail} alt={product.title} width={50} height={50} />
                 <div className="text-start pl-2 flex flex-col">
                   <span className="font-bold">{product.title}</span>
                   <span className="text-gray-500">{product.sku}</span>
