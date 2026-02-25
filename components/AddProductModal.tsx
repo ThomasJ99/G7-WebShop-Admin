@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import type { Category } from "../app/types";
+import { useState, useEffect } from 'react';
+import type { Category } from '../app/types';
 
-const API_URL = "http://localhost:4000";
+const API_URL = 'http://localhost:4000';
 
 interface AddProductModalProps {
   isOpen: boolean;
@@ -13,13 +13,13 @@ interface AddProductModalProps {
 export default function AddProductModal({ isOpen, onClose }: AddProductModalProps) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [formData, setFormData] = useState({
-    title: "",
-    brand: "",
-    price: "",
-    stock: "",
-    categoryId: "",
-    description: "",
-    thumbnail: "",
+    title: '',
+    brand: '',
+    price: '',
+    stock: '',
+    categoryId: '',
+    description: '',
+    thumbnail: '',
   });
 
   useEffect(() => {
@@ -32,9 +32,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
 
   if (!isOpen) return null;
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -52,8 +50,8 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
     };
 
     const res = await fetch(`${API_URL}/products`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
 
@@ -70,10 +68,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
   };
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
-      onClick={handleBackdropClick}
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={handleBackdropClick}>
       <div className="bg-white rounded-lg w-full max-w-2xl mx-4 p-6">
         <h2 className="text-2xl font-bold mb-4 border-b pb-3">Add Product</h2>
 
@@ -86,6 +81,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               value={formData.title}
               onChange={handleChange}
               required
+              maxLength={40}
               className="flex-1 border border-gray-300 rounded px-3 py-2"
             />
           </div>
@@ -112,6 +108,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               required
               min="0"
               step="0.01"
+              max={10}
               className="flex-1 border border-gray-300 rounded px-3 py-2"
             />
           </div>
@@ -125,6 +122,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               onChange={handleChange}
               required
               min="0"
+              maxLength={5}
               className="flex-1 border border-gray-300 rounded px-3 py-2"
             />
           </div>
@@ -179,10 +177,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
             >
               Cancel
             </button>
-            <button
-              type="submit"
-              className="px-4 py-1.5 text-sm bg-red-600 text-white rounded hover:bg-red-700"
-            >
+            <button type="submit" className="px-4 py-1.5 text-sm bg-red-600 text-white rounded hover:bg-red-700">
               Save
             </button>
           </div>

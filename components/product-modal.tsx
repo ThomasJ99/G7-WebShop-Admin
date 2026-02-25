@@ -99,6 +99,7 @@ export default function ProductModal({ isOpen, onClose, product }: AddProductMod
               value={formData.title}
               onChange={handleChange}
               required
+              maxLength={40}
               className="flex-1 border border-gray-300 rounded px-3 py-2"
             />
           </div>
@@ -125,6 +126,7 @@ export default function ProductModal({ isOpen, onClose, product }: AddProductMod
               required
               min="0"
               step="0.01"
+              maxLength={10}
               className="flex-1 border border-gray-300 rounded px-3 py-2"
             />
           </div>
@@ -138,6 +140,7 @@ export default function ProductModal({ isOpen, onClose, product }: AddProductMod
               onChange={handleChange}
               required
               min="0"
+              maxLength={5}
               className="flex-1 border border-gray-300 rounded px-3 py-2"
             />
           </div>
