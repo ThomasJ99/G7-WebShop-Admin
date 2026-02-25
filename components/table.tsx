@@ -1,15 +1,17 @@
-import type { Product } from '../app/types';
-import { SquarePen } from 'lucide-react';
-import Image from 'next/image';
-import { DeleteForm } from './delete-form';
+import type { Product } from "../app/types";
+import { SquarePen } from "lucide-react";
+import Image from "next/image";
+import { DeleteFormNew } from "./delete-form";
 
 interface Props {
   searchQuery?: string;
   products: Product[];
 }
 
-export default async function Table({ searchQuery = '', products }: Props) {
-  const filtered = products.filter((p) => p.title.toLowerCase().includes(searchQuery.toLowerCase()));
+export default async function Table({ searchQuery = "", products }: Props) {
+  const filtered = products.filter((p) =>
+    p.title.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
 
   return (
     <>
@@ -28,7 +30,12 @@ export default async function Table({ searchQuery = '', products }: Props) {
           {filtered.map((product) => (
             <tr key={product.id} className="">
               <td className="flex">
-                <Image src={product.thumbnail} alt={product.title} width={50} height={50}></Image>
+                <Image
+                  src={product.thumbnail}
+                  alt={product.title}
+                  width={50}
+                  height={50}
+                ></Image>
                 <div className="text-start pl-2 flex flex-col">
                   <span className="font-bold">{product.title}</span>
                   <span className="text-gray-500">{product.sku}</span>
@@ -46,11 +53,12 @@ export default async function Table({ searchQuery = '', products }: Props) {
                   <span className="text-green-700">In stock</span>
                 )}
               </td>
+              {/* Could remove pr-3 and add ms-3 me-3 to td instead, test later */}
               <td className="">
                 <button className="pr-3">
                   <SquarePen className="text-purple-700 w-6" />
                 </button>
-                  <DeleteForm id={''}/>
+                <DeleteFormNew id={product.id} />
               </td>
             </tr>
           ))}

@@ -1,9 +1,10 @@
 "use client";
 
-import { Trash } from "lucide-react";
+import { Loader, Trash } from "lucide-react";
 import Form from "next/form";
 import { useFormStatus } from "react-dom";
-import { deleteProduct } from "../lib/actions";
+import { deleteProductNew } from "../lib/actions";
+import toast from "react-hot-toast";
 
 function DeleteButton() {
   // We deconstruct pending(bool) out of formstatus, if not we could use const status and we could do status.pending
@@ -15,19 +16,29 @@ function DeleteButton() {
       disabled={pending}
       className="cursor-pointer disabled:cursor-not-allowed"
     >
-      <Trash className="text-red-600 w-6" />
-      {/* Delete later - is for testing */}
-      {pending ? "Deleting..." : "Delete"}
+      {/* Three states here, normal is the trash icon showing, then on click the spinner shows, then back to trash */}
+      {pending ? (
+        <Loader className="w-6 opacity-20 animate-spin" aria-hidden="true" />
+      ) : (
+        <Trash className="text-red-600 w-6" aria-label="Delete button" />
+      )}
+      {/* For screen reader */}
+      <span className="sr-only">{pending ? "Deleting..." : "Delete"}</span>
     </button>
   );
 }
 
-export function DeleteForm({ id }: { id: string }) {
+export function DeleteFormNew({ id }: { id: number }) {
+  const clientAction = async () => {
+    const res = await deleteProductNew(id);
+
+    // Different popups from clicking the button
+    if (!res) toast.error("Product not deleted...");
+    else toast.success("Product successfully deleted!");
+  };
+
   return (
-    // Action should be the deleteProduct function which handles the backend stuff, removing the product from the JSON.
-    <Form action={deleteProduct}>
-      {/* We get the value and ID from our "hidden" input field */}
-      <input hidden readOnly name="id" value={id} />
+    <Form action={clientAction}>
       <DeleteButton />
     </Form>
   );
