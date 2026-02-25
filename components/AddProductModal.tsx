@@ -108,7 +108,6 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               required
               min="0"
               step="0.01"
-              max={10}
               className="flex-1 border border-gray-300 rounded px-3 py-2"
             />
           </div>
@@ -122,7 +121,6 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               onChange={handleChange}
               required
               min="0"
-              maxLength={5}
               className="flex-1 border border-gray-300 rounded px-3 py-2"
             />
           </div>
