@@ -8,8 +8,6 @@ interface Props {
 }
 
 export default async function Table({ searchQuery = '', products }: Props) {
-  const filtered = products.filter((p) => p.title.toLowerCase().includes(searchQuery.toLowerCase()));
-
   return (
     <>
       <table className="text-center">
@@ -24,7 +22,7 @@ export default async function Table({ searchQuery = '', products }: Props) {
           </tr>
         </thead>
         <tbody>
-          {filtered.map((product) => (
+          {products.map((product) => (
             <tr key={product.id} className="">
               <td className="flex">
                 <Image src={product.thumbnail} alt={product.title} width={50} height={50}></Image>

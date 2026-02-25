@@ -28,7 +28,7 @@ export default async function Home({
   );
 
   const { products, total, page, pages, limit }: ProductsResponse = await fetch(
-    `${API_URL}/products/?_page=${currentPage}&_limit=${defaultLimit}&_sort=id&_order=desc&_expand=category${category ? `&categoryId=${category}` : ""}`,
+    `${API_URL}/products/?_page=${currentPage}&_limit=${defaultLimit}&_sort=id&_order=desc&_expand=category${category ? `&categoryId=${category}` : ""}${search ? `&q=${search}` : ""}`,
   ).then((res) => res.json());
 
   // TODO: Put the fetch and totalproducts thing in 1 function to encapsulate or a new component
@@ -36,16 +36,14 @@ export default async function Home({
     `${API_URL}/products`,
   ).then((res) => res.json());
 
-  const totalProducts = allProducts.length;
-  const inStock = allProducts.filter(
-    (p) => p.availabilityStatus === "In Stock",
-  ).length;
-  const lowStock = allProducts.filter(
-    (p) => p.availabilityStatus === "Low Stock",
-  ).length;
-  const outOfStock = allProducts.filter(
-    (p) => p.availabilityStatus === "Out of Stock",
-  ).length;
+
+  let filteredTotal = total;
+  if (search) {
+    const { products: searchFilteredProducts }: ProductsResponse = await fetch(
+      `${API_URL}/products?q=${search}${category ? `&categoryId=${category}` : ""}`,
+    ).then((res) => res.json());
+    filteredTotal = searchFilteredProducts.length;
+  }
 
   return (
     <main className="flex bg-gray-100">
@@ -53,12 +51,7 @@ export default async function Home({
       <div className="grow">
         <Header />
         <div className="mx-8">
-          <Stockoverview
-            totalProducts={totalProducts}
-            inStock={inStock}
-            lowStock={lowStock}
-            outOfStock={outOfStock}
-          />
+          <Stockoverview products={allProducts} />
 
           <div className="flex gap-3 mb-8 bg-white p-5 rounded-2xl border-2 border-gray-200">
             <SearchBar />
@@ -85,7 +78,7 @@ export default async function Home({
             </button>
           </div>
           <Table searchQuery={search ?? ""} products={products} />
-          <Pagination page={page} pages={pages} limit={limit} total={total} />
+          <Pagination page={page} pages={pages} limit={limit} total={filteredTotal} />
         </div>
       </div>
     </main>
