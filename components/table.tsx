@@ -1,6 +1,9 @@
+'use client';
 import type { Product } from '../app/types';
 import { Trash, SquarePen } from 'lucide-react';
 import Image from 'next/image';
+import ProductModal from './product-modal';
+import { useState } from 'react';
 
 interface Props {
   searchQuery?: string;
@@ -10,9 +13,9 @@ interface Props {
 export default async function Table({ searchQuery = '', products }: Props) {
   return (
     <>
-      <table className="text-center">
-        <thead>
-          <tr className="text-gray-500">
+      <table className="text-center overflow-hidden bg-white w-full text-sm">
+        <thead className="bg-gray-100 text-xs">
+          <tr className="text-gray-500 border-b border-gray-900 border-b-gray-300">
             <th>Product</th>
             <th>Category</th>
             <th>Price</th>
@@ -43,18 +46,25 @@ export default async function Table({ searchQuery = '', products }: Props) {
                   <span className="text-green-700">In stock</span>
                 )}
               </td>
-              <td className="">
-                <button className="pr-3">
-                  <SquarePen className="text-purple-700 w-6" />
+              <td className="w-24">
+                <button
+                  onClick={() => {
+                    setSelectedProduct(product);
+                    setIsOpen(true);
+                  }}
+                  className="pr-3 hover:cursor-pointer"
+                >
+                  <SquarePen className="text-purple-700 w-5" />
                 </button>
-                <button>
-                  <Trash className="text-red-600 w-6" />
+                <button className="hover:cursor-pointer">
+                  <Trash className="text-red-600 w-5" />
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <ProductModal isOpen={isOpen} onClose={() => setIsOpen(false)} product={selectedProduct} />
     </>
   );
 }

@@ -1,15 +1,15 @@
-import Header from "../components/header";
-import type { Category, ProductsResponse } from "./types";
-import Table from "../components/table";
-import Sidebar from "../components/sidebar";
-import Stockoverview from "../components/StockOverview";
-import Pagination from "../components/Pagination";
-import SearchBar from "../components/SearchBar";
-import { ChevronDown } from "lucide-react";
-import CategoryFilter from "../components/category-filter";
+import Header from '../components/header';
+import type { Category, ProductsResponse } from './types';
+import Table from '../components/table';
+import Sidebar from '../components/sidebar';
+import Stockoverview from '../components/StockOverview';
+import Pagination from '../components/Pagination';
+import SearchBar from '../components/SearchBar';
+import { ChevronDown } from 'lucide-react';
+import CategoryFilter from '../components/category-filter';
 
-const API_URL = "http://localhost:4000";
-const defaultLimit = "6";
+const API_URL = 'http://localhost:4000';
+const defaultLimit = '6';
 
 export default async function Home({
   searchParams,
@@ -23,18 +23,14 @@ export default async function Home({
   const { page: pageParam, search, category } = await searchParams;
   const currentPage = Number(pageParam) || 1;
 
-  const categories: Category[] = await fetch(`${API_URL}/categories`).then(
-    (res) => res.json(),
-  );
+  const categories: Category[] = await fetch(`${API_URL}/categories`).then((res) => res.json());
 
   const { products, total, page, pages, limit }: ProductsResponse = await fetch(
     `${API_URL}/products/?_page=${currentPage}&_limit=${defaultLimit}&_sort=id&_order=desc&_expand=category${category ? `&categoryId=${category}` : ""}${search ? `&q=${search}` : ""}`,
   ).then((res) => res.json());
 
   // TODO: Put the fetch and totalproducts thing in 1 function to encapsulate or a new component
-  const { products: allProducts }: ProductsResponse = await fetch(
-    `${API_URL}/products`,
-  ).then((res) => res.json());
+  const { products: allProducts }: ProductsResponse = await fetch(`${API_URL}/products`).then((res) => res.json());
 
 
   let filteredTotal = total;
@@ -73,7 +69,7 @@ export default async function Home({
                 strokeLinejoin="round"
               >
                 <path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z" />
-              </svg>{" "}
+              </svg>{' '}
               Filter
             </button>
           </div>

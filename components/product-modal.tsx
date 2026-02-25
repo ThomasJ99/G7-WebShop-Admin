@@ -1,16 +1,18 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import type { Category } from '../app/types';
+import type { Category, Product } from '../app/types';
+import { useRouter } from 'next/navigation';
 
 const API_URL = 'http://localhost:4000';
 
 interface AddProductModalProps {
   isOpen: boolean;
   onClose: () => void;
+  product?: Product;
 }
 
-export default function AddProductModal({ isOpen, onClose }: AddProductModalProps) {
+export default function ProductModal({ isOpen, onClose, product }: AddProductModalProps) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [formData, setFormData] = useState({
     title: '',
@@ -22,6 +24,8 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
     thumbnail: '',
   });
 
+  const router = useRouter();
+
   useEffect(() => {
     if (isOpen) {
       fetch(`${API_URL}/categories`)
@@ -30,13 +34,27 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (product) {
+      setFormData({
+        title: product.title ?? '',
+        brand: product.brand ?? '',
+        price: String(product.price ?? ''),
+        stock: String(product.stock ?? ''),
+        categoryId: String(product.categoryId ?? ''),
+        description: product.description ?? '',
+        thumbnail: product.thumbnail ?? '',
+      });
+    }
+  }, [product]);
+
   if (!isOpen) return null;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
 
     const body = {
@@ -49,15 +67,15 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
       thumbnail: formData.thumbnail,
     };
 
-    const res = await fetch(`${API_URL}/products`, {
-      method: 'POST',
+    const res = await fetch(`${API_URL}/products/${product?.id}`, {
+      method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
 
     if (res.ok) {
       onClose();
-      window.location.reload();
+      router.refresh();
     }
   };
 
@@ -70,7 +88,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={handleBackdropClick}>
       <div className="bg-white rounded-lg w-full max-w-2xl mx-4 p-6">
-        <h2 className="text-2xl font-bold mb-4 border-b pb-3">Add Product</h2>
+        <h2 className="text-2xl font-bold mb-4 border-b pb-3">{product ? 'Edit Product' : 'Add Product'}</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex items-center">
@@ -176,7 +194,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               Cancel
             </button>
             <button type="submit" className="px-4 py-1.5 text-sm bg-red-600 text-white rounded hover:bg-red-700">
-              Save
+              {product ? 'Update' : 'Save'}
             </button>
           </div>
         </form>
