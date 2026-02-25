@@ -7,9 +7,9 @@ import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
 import { ChevronDown } from "lucide-react";
 import CategoryFilter from "../components/category-filter";
+import { API_URL } from "../lib/config";
 
-const API_URL = "http://localhost:4000";
-const defaultLimit = "6";
+ const defaultLimit = "6";
 
 export default async function Home({
   searchParams,
