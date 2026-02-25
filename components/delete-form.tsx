@@ -16,7 +16,7 @@ function DeleteButton() {
       {pending ? (
         <Loader className="w-5 opacity-20 animate-spin" aria-hidden="true" />
       ) : (
-        <Trash className="text-red-600  w-5" aria-label="Delete button" />
+        <Trash className="text-red-600 w-5" aria-label="Delete button" />
       )}
       {/* For screen reader */}
       <span className="sr-only">{pending ? 'Deleting...' : 'Delete'}</span>
