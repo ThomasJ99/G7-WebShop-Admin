@@ -18,9 +18,9 @@ function DeleteButton() {
     >
       {/* Three states here, normal is the trash icon showing, then on click the spinner shows, then back to trash */}
       {pending ? (
-        <Loader className="w-6 opacity-20 animate-spin" aria-hidden="true" />
+        <Loader className="w-5 opacity-20 animate-spin" aria-hidden="true" />
       ) : (
-        <Trash className="text-red-600 w-6" aria-label="Delete button" />
+        <Trash className="text-red-600 w-5" aria-label="Delete button" />
       )}
       {/* For screen reader */}
       <span className="sr-only">{pending ? "Deleting..." : "Delete"}</span>

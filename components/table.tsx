@@ -53,7 +53,6 @@ export default async function Table({ searchQuery = "", products }: Props) {
                   <span className="text-green-700">In stock</span>
                 )}
               </td>
-              {/* Could remove pr-3 and add ms-3 me-3 to td instead, test later */}
               <td className="">
                 <button className="pr-3">
                   <SquarePen className="text-purple-700 w-6" />
