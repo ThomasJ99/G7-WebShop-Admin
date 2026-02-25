@@ -16,9 +16,10 @@ export default function Header() {
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-purple-700 px-5 my-2 text-white rounded-sm hover:bg-purple-800 active:bg-purple-900"
+          className="bg-purple-700 px-4 my-2 text-white font-semibold rounded-md hover:bg-purple-800 active:bg-purple-900 flex gap-4"
         >
-          + Add product
+          <span className="text-2xl">+</span>
+          <span className="pt-1.5">Add product</span>
         </button>
       </header>
 
