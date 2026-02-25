@@ -1,4 +1,5 @@
 'use client';
+import { DeleteFormNew } from "./delete-form";
 import type { Product } from '../app/types';
 import { Trash, SquarePen } from 'lucide-react';
 import Image from 'next/image';
@@ -31,7 +32,12 @@ export default function Table({ searchQuery = '', products }: Props) {
           {filtered.map((product) => (
             <tr key={product.id} className="">
               <td className="flex">
-                <Image src={product.thumbnail} alt={product.title} width={50} height={50}></Image>
+                <Image
+                  src={product.thumbnail}
+                  alt={product.title}
+                  width={50}
+                  height={50}
+                ></Image>
                 <div className="text-start pl-2 flex flex-col">
                   <span className="font-bold">{product.title}</span>
                   <span className="text-gray-500">{product.sku}</span>
@@ -59,6 +65,7 @@ export default function Table({ searchQuery = '', products }: Props) {
                 >
                   <SquarePen className="text-purple-700 w-5" />
                 </button>
+                <DeleteFormNew id={product.id} />
                 <button className="hover:cursor-pointer">
                   <Trash className="text-red-600 w-5" />
                 </button>
