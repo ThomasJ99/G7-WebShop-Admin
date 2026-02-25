@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import AddProductModal from "./product-modal";
+import AddProductModal from "./Product-Modal";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
