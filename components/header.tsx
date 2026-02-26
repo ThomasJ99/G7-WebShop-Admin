@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import AddProductModal from './product-modal-add';
+import { Plus } from 'lucide-react';
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,9 +17,10 @@ export default function Header() {
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-[#764994] px-5 my-2 text-white rounded-sm hover:cursor-pointer hover:bg-[#764994e0] active:bg-[#764994]"
+          className="bg-[#764994] text-white rounded-md hover:cursor-pointer hover:bg-[#764994e0] active:bg-[#764994] px-4 my-2 font-semibold  flex gap-3"
         >
-          + Add product
+          <Plus className="mt-2 w-5" />
+          <span className="pt-2">Add product</span>
         </button>
       </header>
 
