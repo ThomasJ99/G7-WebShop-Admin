@@ -10,8 +10,8 @@ export default function Stockoverview({ products }: Props) {
   const inStock = products.filter(
     (p) => p.availabilityStatus === "In Stock",
   ).length;
-  const lowStock = products.filter(
-    (p) => p.availabilityStatus === "Low Stock",
+  const limitedStock = products.filter(
+    (p) => p.availabilityStatus === "Limited Stock",
   ).length;
   const outOfStock = products.filter(
     (p) => p.availabilityStatus === "Out of Stock",
@@ -38,8 +38,8 @@ export default function Stockoverview({ products }: Props) {
       </div>
       <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">
         <div>
-          <p className="text-sm text-gray-500 mb-1">Low stock</p>
-          <p className="text-3xl font-bold text-gray-800">{lowStock}</p>
+          <p className="text-sm text-gray-500 mb-1">Limited stock</p>
+          <p className="text-3xl font-bold text-gray-800">{limitedStock}</p>
         </div>
         <div className="bg-orange-100 rounded-xl p-3">
           <TriangleAlert className="w-6 h-6 text-orange-400" />
