@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 interface PaginationProps {
   page: number;
@@ -17,7 +17,7 @@ export default function Pagination({ page, pages, limit, total }: PaginationProp
 
   function buildPageUrl(pageNum: number) {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("page", String(pageNum));
+    params.set('page', String(pageNum));
     return `/?${params.toString()}`;
   }
 
@@ -40,7 +40,7 @@ export default function Pagination({ page, pages, limit, total }: PaginationProp
 
       <nav className="flex items-center gap-1">
         <Link
-          href={page > 1 ? buildPageUrl(page - 1) : "#"}
+          href={page > 1 ? buildPageUrl(page - 1) : '#'}
           className={`rounded-md border border-gray-300 px-3 py-1.5 text-sm ${
             page <= 1 ? 'pointer-events-none text-gray-300' : 'text-gray-700 hover:bg-gray-50'
           }`}
@@ -53,7 +53,7 @@ export default function Pagination({ page, pages, limit, total }: PaginationProp
             key={num}
             href={buildPageUrl(num)}
             className={`rounded-md px-3 py-1.5 text-sm ${
-              num === page ? 'bg-purple-700 text-white' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
+              num === page ? 'bg-[#764994] text-white' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
             }`}
           >
             {num}
@@ -61,7 +61,7 @@ export default function Pagination({ page, pages, limit, total }: PaginationProp
         ))}
 
         <Link
-          href={page < pages ? buildPageUrl(page + 1) : "#"}
+          href={page < pages ? buildPageUrl(page + 1) : '#'}
           className={`rounded-md border border-gray-300 px-3 py-1.5 text-sm ${
             page >= pages ? 'pointer-events-none text-gray-300' : 'text-gray-700 hover:bg-gray-50'
           }`}
