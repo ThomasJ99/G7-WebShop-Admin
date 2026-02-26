@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "mock-server": "json-server --watch server/products.json --middlewares server/middleware.js --port 4000",
+    "mock-server": "json-server --watch server/products.json --middlewares server/middleware.js --port 4000 --host 0.0.0.0",
     "dev:full": "concurrently \"npm run dev\" \"npm run mock-server\"",
     "build": "next build",
     "start": "next start",
@@ -15,7 +15,8 @@
     "lucide-react": "^0.575.0",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-hot-toast": "^2.6.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
