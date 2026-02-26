@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import type { Category, Product } from '../app/types';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const API_URL = 'http://localhost:4000';
 
@@ -52,6 +53,7 @@ export default function ProductModal({ isOpen, onClose, product }: AddProductMod
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log('I did something');
   };
 
   const handleSubmit = async (e: React.SubmitEvent) => {
@@ -196,7 +198,15 @@ export default function ProductModal({ isOpen, onClose, product }: AddProductMod
             >
               Cancel
             </button>
-            <button type="submit" className="px-4 py-1.5 text-sm bg-red-600 text-white rounded hover:bg-red-700">
+            <button
+              onClick={() => {
+                product
+                  ? toast.success('Product successfully updated!')
+                  : toast.success('Product successfully created!');
+              }}
+              type="submit"
+              className="px-4 py-1.5 text-sm bg-red-600 text-white rounded hover:bg-red-700"
+            >
               {product ? 'Update' : 'Save'}
             </button>
           </div>
