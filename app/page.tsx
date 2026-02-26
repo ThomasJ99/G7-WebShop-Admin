@@ -73,7 +73,7 @@ export default async function Home({
               Filter
             </button>
           </div>
-          <Table searchQuery={search ?? ""} products={products} />
+          <Table products={products} />
           <Pagination page={page} pages={pages} limit={limit} total={filteredTotal} />
         </div>
       </div>
