@@ -3,7 +3,7 @@ import type { Category, ProductsResponse } from "./types";
 import Table from "../components/table";
 import Sidebar from "../components/sidebar";
 import Stockoverview from "../components/stock-overview";
-import Pagination from "../components/Pagination";
+import Pagination from '../components/pagination-scroll';
 import SearchBar from "../components/search-bar";
 import { ChevronDown } from "lucide-react";
 import CategoryFilter from "../components/category-filter";
