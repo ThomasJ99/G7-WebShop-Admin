@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 interface PaginationProps {
   page: number;
@@ -8,8 +11,15 @@ interface PaginationProps {
 }
 
 export default function Pagination({ page, pages, limit, total }: PaginationProps) {
+  const searchParams = useSearchParams();
   const from = (page - 1) * limit + 1;
   const to = Math.min(page * limit, total);
+
+  function buildPageUrl(pageNum: number) {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('page', String(pageNum));
+    return `/?${params.toString()}`;
+  }
 
   // Build the array of page numbers to display (max 3 around current page)
   const pageNumbers: number[] = [];
@@ -30,8 +40,8 @@ export default function Pagination({ page, pages, limit, total }: PaginationProp
 
       <nav className="flex items-center gap-1">
         <Link
-          href={page > 1 ? `/?page=${page - 1}` : '#'}
-          className={`rounded border border-gray-300 px-3 py-1.5 text-sm ${
+          href={page > 1 ? buildPageUrl(page - 1) : '#'}
+          className={`rounded-md border border-gray-300 px-3 py-1.5 text-sm ${
             page <= 1 ? 'pointer-events-none text-gray-300' : 'text-gray-700 hover:bg-gray-50'
           }`}
         >
@@ -41,9 +51,9 @@ export default function Pagination({ page, pages, limit, total }: PaginationProp
         {pageNumbers.map((num) => (
           <Link
             key={num}
-            href={`/?page=${num}`}
-            className={`rounded px-3 py-1.5 text-sm ${
-              num === page ? 'bg-purple-700 text-white' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
+            href={buildPageUrl(num)}
+            className={`rounded-md px-3 py-1.5 text-sm ${
+              num === page ? 'bg-[#764994] text-white' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
             }`}
           >
             {num}
@@ -51,8 +61,8 @@ export default function Pagination({ page, pages, limit, total }: PaginationProp
         ))}
 
         <Link
-          href={page < pages ? `/?page=${page + 1}` : '#'}
-          className={`rounded border border-gray-300 px-3 py-1.5 text-sm ${
+          href={page < pages ? buildPageUrl(page + 1) : '#'}
+          className={`rounded-md border border-gray-300 px-3 py-1.5 text-sm ${
             page >= pages ? 'pointer-events-none text-gray-300' : 'text-gray-700 hover:bg-gray-50'
           }`}
         >

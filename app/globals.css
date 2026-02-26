@@ -1,10 +1,5 @@
 @import 'tailwindcss';
 
-td,
-th {
-  padding: 0.8rem;
-}
-
-tr {
-  border-bottom: 1px solid rgb(192, 192, 192);
+:root {
+  --clr-purple: #764994;
 }
