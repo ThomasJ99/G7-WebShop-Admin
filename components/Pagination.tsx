@@ -11,17 +11,15 @@ interface PaginationProps {
 }
 
 export default function Pagination({ page, pages, limit, total }: PaginationProps) {
-  
   const searchParams = useSearchParams();
- 
   const from = (page - 1) * limit + 1;
   const to = Math.min(page * limit, total);
 
-  const createPageLink = (pageNum: number) => {
+  function buildPageUrl(pageNum: number) {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("page", pageNum.toString());
+    params.set("page", String(pageNum));
     return `/?${params.toString()}`;
-  };
+  }
 
   // Build the array of page numbers to display (max 3 around current page)
   const pageNumbers: number[] = [];
@@ -42,7 +40,7 @@ export default function Pagination({ page, pages, limit, total }: PaginationProp
 
       <nav className="flex items-center gap-1">
         <Link
-          href={page > 1 ? `/?page=${page - 1}` : '#'}
+          href={page > 1 ? buildPageUrl(page - 1) : "#"}
           className={`rounded border border-gray-300 px-3 py-1.5 text-sm ${
             page <= 1 ? 'pointer-events-none text-gray-300' : 'text-gray-700 hover:bg-gray-50'
           }`}
@@ -53,7 +51,7 @@ export default function Pagination({ page, pages, limit, total }: PaginationProp
         {pageNumbers.map((num) => (
           <Link
             key={num}
-            href={createPageLink(num)}
+            href={buildPageUrl(num)}
             className={`rounded px-3 py-1.5 text-sm ${
               num === page ? 'bg-purple-700 text-white' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
             }`}
@@ -63,7 +61,7 @@ export default function Pagination({ page, pages, limit, total }: PaginationProp
         ))}
 
         <Link
-          href={page < pages ? createPageLink(page + 1) : "#"}
+          href={page < pages ? buildPageUrl(page + 1) : "#"}
           className={`rounded border border-gray-300 px-3 py-1.5 text-sm ${
             page >= pages ? 'pointer-events-none text-gray-300' : 'text-gray-700 hover:bg-gray-50'
           }`}
