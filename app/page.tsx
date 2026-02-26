@@ -1,13 +1,13 @@
-import Header from "../components/header";
-import type { Category, ProductsResponse } from "./types";
-import Table from "../components/table";
-import Sidebar from "../components/sidebar";
-import Stockoverview from "../components/stock-overview";
+import Header from '../components/header';
+import type { Category, ProductsResponse } from './types';
+import Table from '../components/table';
+import Sidebar from '../components/sidebar';
+import Stockoverview from '../components/stock-overview';
 import Pagination from '../components/pagination-scroll';
-import SearchBar from "../components/search-bar";
-import { ChevronDown } from "lucide-react";
-import CategoryFilter from "../components/category-filter";
-import { API_URL } from "../lib/config";
+import SearchBar from '../components/search-bar';
+import { ChevronDown } from 'lucide-react';
+import CategoryFilter from '../components/category-filter';
+import { API_URL } from '../lib/config';
 
 const defaultLimit = '6';
 
@@ -55,7 +55,7 @@ export default async function Home({
             <button className="flex items-center gap-8 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold text-nowrap">
               All status <ChevronDown className="w-4 h-4" />
             </button>
-            <button className="flex items-center gap-3 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold">
+            <button className="flex items-center gap-3 text-gray-700 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -72,9 +72,9 @@ export default async function Home({
               Filter
             </button>
           </div>
-          <div className="border border-gray-300 mx-2 rounded-2xl overflow-hidden">
+          <div className="border border-gray-300 rounded-2xl overflow-hidden">
             <Table products={products} />
-            <Pagination page={page} pages={pages} limit={limit} total={filteredTotal} / >
+            <Pagination page={page} pages={pages} limit={limit} total={filteredTotal} />
           </div>
         </div>
       </div>

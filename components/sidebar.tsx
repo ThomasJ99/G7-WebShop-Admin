@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Sidebar() {
   return (
@@ -9,9 +9,7 @@ export default function Sidebar() {
           <ul className="space-y-2 font-medium">
             <li className="mt-2 mb-5 ps-5">
               <Link href="#" className="">
-                <h1 className="text-2xl font-bold text-pretty leading-none px-3">
-                  Webbutiken
-                </h1>
+                <h1 className="text-2xl font-bold text-pretty leading-none px-3">Webbutiken</h1>
                 <span className="px-3 text-black/50 text-sm">Admin panel</span>
               </Link>
             </li>
@@ -21,7 +19,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     href="#"
-                    className="flex items-center p-2.5 gap-4 bg-purple-700 rounded-md text-white hover:bg-purple-800 active:bg-purple-900"
+                    className="flex items-center p-2.5 gap-4 bg-[#764994] rounded-md text-white hover:bg-[#764994] active:bg-[#764994e0]"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +43,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     href="#"
-                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-[#764994] active:bg-[#764994e0]"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +66,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     href="#"
-                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-[#764994] active:bg-[#764994e0]"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +90,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     href="#"
-                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-[#764994] active:bg-[#764994e0]"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +107,7 @@ export default function Sidebar() {
                       <path d="M16 3.128a4 4 0 0 1 0 7.744" />
                       <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
                       <circle cx="9" cy="7" r="4" />
-                    </svg>{" "}
+                    </svg>{' '}
                     <span className="">Customers</span>
                   </Link>
                 </li>
@@ -117,7 +115,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     href="#"
-                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-purple-700 active:bg-purple-800"
+                    className="flex items-center p-2.5 gap-4 rounded-md hover:text-white hover:bg-[#764994] active:bg-[#764994e0]"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +130,7 @@ export default function Sidebar() {
                     >
                       <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
                       <circle cx="12" cy="12" r="3" />
-                    </svg>{" "}
+                    </svg>{' '}
                     <span className="">Settings</span>
                   </Link>
                 </li>
@@ -153,10 +151,7 @@ export default function Sidebar() {
             width={50}
             height={50}
           />
-          <div
-            aria-label="User Information"
-            className="flex flex-col leading-none pt-2"
-          >
+          <div aria-label="User Information" className="flex flex-col leading-none pt-2">
             <span className="">Admin user</span>
             <span className="opacity-60 text-sm">admin@webbutiken.se</span>
           </div>

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import AddProductModal from "./product-modal-add";
+import { useState } from 'react';
+import AddProductModal from './product-modal-add';
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,16 +16,13 @@ export default function Header() {
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-purple-700 px-5 my-2 text-white rounded-sm hover:bg-purple-800 active:bg-purple-900"
+          className="bg-[#764994] px-5 my-2 text-white rounded-sm hover:bg-[#764994e0] active:bg-[#764994]"
         >
           + Add product
         </button>
       </header>
 
-      <AddProductModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <AddProductModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }
