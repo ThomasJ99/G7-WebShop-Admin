@@ -7,12 +7,10 @@ import ProductModal from './product-modal-add';
 import { useState } from 'react';
 
 interface Props {
-  searchQuery?: string;
   products: Product[];
 }
 
-export default function Table({ searchQuery = '', products }: Props) {
-  const filtered = products.filter((p) => p.title.toLowerCase().includes(searchQuery.toLowerCase()));
+export default function Table({ products }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | undefined>();
   return (
@@ -29,8 +27,8 @@ export default function Table({ searchQuery = '', products }: Props) {
           </tr>
         </thead>
         <tbody>
-          {filtered.map((product) => (
-            <tr key={product.id} className="border-b border-b-gray-200 ">
+          {products.map((product) => (
+            <tr key={product.id} className="border-b-gray-200 border-b">
               <td className="flex p-4">
                 <div className="relative w-12.5 aspect-square">
                   <Image
