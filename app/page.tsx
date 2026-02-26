@@ -74,7 +74,7 @@ export default async function Home({
           </div>
           <div className="border border-gray-300 mx-2 rounded-2xl overflow-hidden">
             <Table products={products} />
-            <Pagination page={page} pages={pages} limit={limit} total={filteredTotal} /
+            <Pagination page={page} pages={pages} limit={limit} total={filteredTotal} / >
           </div>
         </div>
       </div>
