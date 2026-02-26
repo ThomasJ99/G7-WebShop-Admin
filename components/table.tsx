@@ -65,7 +65,7 @@ export default function Table({ searchQuery = '', products }: Props) {
                       setSelectedProduct(product);
                       setIsOpen(true);
                     }}
-                    className="hover:cursor-pointer pr-3"
+                    className="hover:cursor-pointer mr-3"
                   >
                     <SquarePen className="text-purple-700 w-5" />
                   </button>
