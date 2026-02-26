@@ -1,7 +1,7 @@
 'use client';
 import { DeleteFormNew } from './delete-form';
 import type { Product } from '../app/types';
-import { Trash, SquarePen } from 'lucide-react';
+import { SquarePen } from 'lucide-react';
 import Image from 'next/image';
 import ProductModal from './product-modal';
 import { useState } from 'react';
@@ -33,7 +33,7 @@ export default function Table({ searchQuery = '', products }: Props) {
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
+          {filtered.map((product) => (
             <tr key={product.id} className="">
               <td className="flex">
                 <Image src={product.thumbnail} alt={product.title} width={50} height={50} />

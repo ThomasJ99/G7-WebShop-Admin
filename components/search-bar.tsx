@@ -22,7 +22,7 @@ export default function SearchBar() {
         placeholder="Search products..."
         defaultValue={searchParams.get("search") ?? ""}
         onChange={handleSearch}
-        className="outline-none"
+        className="outline-none w-full"
       />
     </div>
   );
