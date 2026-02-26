@@ -1,15 +1,15 @@
-import Header from "../components/header";
-import type { Category, ProductsResponse } from "./types";
-import Table from "../components/table";
-import Sidebar from "../components/sidebar";
-import Stockoverview from "../components/StockOverview";
-import Pagination from "../components/Pagination";
-import SearchBar from "../components/SearchBar";
-import { ChevronDown } from "lucide-react";
-import CategoryFilter from "../components/category-filter";
-import { API_URL } from "../lib/config";
+import Header from '../components/header';
+import type { Category, ProductsResponse } from './types';
+import Table from '../components/table';
+import Sidebar from '../components/sidebar';
+import Stockoverview from '../components/StockOverview';
+import Pagination from '../components/Pagination';
+import SearchBar from '../components/SearchBar';
+import { ChevronDown } from 'lucide-react';
+import CategoryFilter from '../components/category-filter';
+import { API_URL } from '../lib/config';
 
- const defaultLimit = "6";
+const defaultLimit = '6';
 
 export default async function Home({
   searchParams,
@@ -26,17 +26,16 @@ export default async function Home({
   const categories: Category[] = await fetch(`${API_URL}/categories`).then((res) => res.json());
 
   const { products, total, page, pages, limit }: ProductsResponse = await fetch(
-    `${API_URL}/products/?_page=${currentPage}&_limit=${defaultLimit}&_sort=id&_order=desc&_expand=category${category ? `&categoryId=${category}` : ""}${search ? `&q=${search}` : ""}`,
+    `${API_URL}/products/?_page=${currentPage}&_limit=${defaultLimit}&_sort=id&_order=desc&_expand=category${category ? `&categoryId=${category}` : ''}${search ? `&q=${search}` : ''}`,
   ).then((res) => res.json());
 
   // TODO: Put the fetch and totalproducts thing in 1 function to encapsulate or a new component
   const { products: allProducts }: ProductsResponse = await fetch(`${API_URL}/products`).then((res) => res.json());
 
-
   let filteredTotal = total;
   if (search) {
     const { products: searchFilteredProducts }: ProductsResponse = await fetch(
-      `${API_URL}/products?q=${search}${category ? `&categoryId=${category}` : ""}`,
+      `${API_URL}/products?q=${search}${category ? `&categoryId=${category}` : ''}`,
     ).then((res) => res.json());
     filteredTotal = searchFilteredProducts.length;
   }
@@ -73,8 +72,10 @@ export default async function Home({
               Filter
             </button>
           </div>
-          <Table searchQuery={search ?? ""} products={products} />
-          <Pagination page={page} pages={pages} limit={limit} total={filteredTotal} />
+          <div className="border border-gray-300 mx-2 rounded-2xl overflow-hidden">
+            <Table searchQuery={search ?? ''} products={products} />
+            <Pagination page={page} pages={pages} limit={limit} total={total} />
+          </div>
         </div>
       </div>
     </main>
