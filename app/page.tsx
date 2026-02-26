@@ -1,13 +1,13 @@
-import Header from '../components/header';
-import type { Category, ProductsResponse } from './types';
-import Table from '../components/table';
-import Sidebar from '../components/sidebar';
-import Stockoverview from '../components/StockOverview';
+import Header from "../components/header";
+import type { Category, ProductsResponse } from "./types";
+import Table from "../components/table";
+import Sidebar from "../components/sidebar";
+import Stockoverview from "../components/stock-overview";
 import Pagination from '../components/pagination-scroll';
-import SearchBar from '../components/SearchBar';
-import { ChevronDown } from 'lucide-react';
-import CategoryFilter from '../components/category-filter';
-import { API_URL } from '../lib/config';
+import SearchBar from "../components/search-bar";
+import { ChevronDown } from "lucide-react";
+import CategoryFilter from "../components/category-filter";
+import { API_URL } from "../lib/config";
 
 const defaultLimit = '6';
 
@@ -73,8 +73,8 @@ export default async function Home({
             </button>
           </div>
           <div className="border border-gray-300 mx-2 rounded-2xl overflow-hidden">
-            <Table searchQuery={search ?? ''} products={products} />
-            <Pagination page={page} pages={pages} limit={limit} total={total} />
+            <Table products={products} />
+            <Pagination page={page} pages={pages} limit={limit} total={filteredTotal} / >
           </div>
         </div>
       </div>
