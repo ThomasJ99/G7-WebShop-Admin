@@ -1,18 +1,21 @@
 import { Package, CircleCheckBig, TriangleAlert, CircleX } from "lucide-react";
+import type { Product } from "../app/types";
 
 interface Props {
-  totalProducts: number;
-  inStock: number;
-  lowStock: number;
-  outOfStock: number;
+  products: Product[];
 }
 
-export default function Stockoverview({
-  totalProducts,
-  inStock,
-  lowStock,
-  outOfStock,
-}: Props) {
+export default function Stockoverview({ products }: Props) {
+  const totalProducts = products.length;
+  const inStock = products.filter(
+    (p) => p.availabilityStatus === "In Stock",
+  ).length;
+  const lowStock = products.filter(
+    (p) => p.availabilityStatus === "Low Stock",
+  ).length;
+  const outOfStock = products.filter(
+    (p) => p.availabilityStatus === "Out of Stock",
+  ).length;
   return (
     <section className="grid grid-cols-4 gap-6 my-8 pb-4 ">
       <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">

@@ -10,6 +10,7 @@ export default function SearchBar() {
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
     const params = new URLSearchParams(searchParams.toString());
     params.set("search", e.target.value);
+    params.delete("page");
     router.replace(`?${params.toString()}`);
   }
 

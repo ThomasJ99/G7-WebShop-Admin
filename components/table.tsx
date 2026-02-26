@@ -11,10 +11,7 @@ interface Props {
   products: Product[];
 }
 
-export default function Table({ searchQuery = '', products }: Props) {
-  const filtered = products.filter((p) => p.title.toLowerCase().includes(searchQuery.toLowerCase()));
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<Product | undefined>();
+export default async function Table({ searchQuery = '', products }: Props) {
   return (
     <>
       <table className="text-center overflow-hidden bg-white w-full text-sm">
@@ -29,7 +26,7 @@ export default function Table({ searchQuery = '', products }: Props) {
           </tr>
         </thead>
         <tbody>
-          {filtered.map((product) => (
+          {products.map((product) => (
             <tr key={product.id} className="">
               <td className="flex">
                 <Image src={product.thumbnail} alt={product.title} width={50} height={50} />
