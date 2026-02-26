@@ -51,7 +51,7 @@ export default function Table({ products }: Props) {
                 {product.stock === 0 ? (
                   <span className="text-red-700">Out of stock</span>
                 ) : product.stock !== undefined && product.stock < 15 ? (
-                  <span className="text-yellow-500">Limited stock</span>
+                  <span className="text-orange-400">Limited stock</span>
                 ) : (
                   <span className="text-green-700">In stock</span>
                 )}
@@ -65,7 +65,7 @@ export default function Table({ products }: Props) {
                     }}
                     className="hover:cursor-pointer mr-3"
                   >
-                    <SquarePen className="text-purple-700 w-5" />
+                    <SquarePen className="text-[#764994] w-5" />
                   </button>
                   <DeleteFormNew id={product.id} />
                 </div>

@@ -1,4 +1,4 @@
-import { Package2, CircleCheckBig, TriangleAlert, CircleX } from 'lucide-react';
+import { Package2, CircleCheck, TriangleAlert, CircleX } from 'lucide-react';
 import type { Product } from '../app/types';
 
 interface Props {
@@ -27,7 +27,7 @@ export default function Stockoverview({ products }: Props) {
           <p className="text-3xl font-bold text-gray-800">{inStock}</p>
         </div>
         <div className="bg-green-100 rounded-xl p-3">
-          <CircleCheckBig className="w-6 h-6 text-green-700" />
+          <CircleCheck className="w-6 h-6 text-green-700" />
         </div>
       </div>
       <div className="bg-white rounded-2xl p-6 flex items-center justify-between border-2 border-gray-200">
