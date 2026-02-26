@@ -16,7 +16,7 @@ export default function Header() {
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-[#764994] px-5 my-2 text-white rounded-sm hover:bg-[#764994e0] active:bg-[#764994]"
+          className="bg-[#764994] px-5 my-2 text-white rounded-sm hover:cursor-pointer hover:bg-[#764994e0] active:bg-[#764994]"
         >
           + Add product
         </button>
