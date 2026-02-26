@@ -55,7 +55,7 @@ export default async function Home({
             <button className="flex items-center gap-8 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold text-nowrap">
               All status <ChevronDown className="w-4 h-4" />
             </button>
-            <button className="flex items-center gap-3 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold">
+            <button className="flex items-center gap-3 text-gray-700 bg-white border border-gray-400 rounded-md px-2 py-2 text-sm font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -72,7 +72,7 @@ export default async function Home({
               Filter
             </button>
           </div>
-          <div className="border border-gray-300 mx-2 rounded-2xl overflow-hidden">
+          <div className="border border-gray-300 rounded-2xl overflow-hidden">
             <Table searchQuery={search ?? ''} products={products} />
             <Pagination page={page} pages={pages} limit={limit} total={total} />
           </div>
