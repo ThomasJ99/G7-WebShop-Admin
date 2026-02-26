@@ -67,8 +67,11 @@ export default function ProductModal({ isOpen, onClose, product }: AddProductMod
       thumbnail: formData.thumbnail,
     };
 
-    const res = await fetch(`${API_URL}/products/${product?.id}`, {
-      method: 'PATCH',
+    const url = product ? `${API_URL}/products/${product.id}` : `${API_URL}/products`;
+    const method = product ? 'PATCH' : 'POST';
+
+    const res = await fetch(url, {
+      method,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });

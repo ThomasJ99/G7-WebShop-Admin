@@ -3,7 +3,7 @@ import { DeleteFormNew } from "./delete-form";
 import type { Product } from '../app/types';
 import { Trash, SquarePen } from 'lucide-react';
 import Image from 'next/image';
-import ProductModal from './Product-Modal';
+import ProductModal from './product-modal-add';
 import { useState } from 'react';
 
 interface Props {

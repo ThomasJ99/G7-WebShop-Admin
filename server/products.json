@@ -11803,6 +11803,21 @@
       ],
       "thumbnail": "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/thumbnail.webp",
       "categoryId": 24
+    },
+    {
+      "title": "Rolex Daytona ",
+      "brand": "Rolex",
+      "price": 2000000,
+      "stock": 3,
+      "categoryId": 10,
+      "description": "Iconic watch from rolex",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/thumbnail.webp",
+      "meta": {
+        "createdAt": "2026-02-26T09:10:46.081Z",
+        "updatedAt": "2026-02-26T09:10:46.081Z"
+      },
+      "id": 195,
+      "sku": "MEN-ROL-ROL-195"
     }
   ],
   "categories": [
