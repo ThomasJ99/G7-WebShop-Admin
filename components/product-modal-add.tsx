@@ -72,15 +72,21 @@ export default function ProductModal({ isOpen, onClose, product }: AddProductMod
     const url = product ? `${API_URL}/products/${product.id}` : `${API_URL}/products`;
     const method = product ? 'PATCH' : 'POST';
 
-    const res = await fetch(url, {
-      method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
 
-    if (res.ok) {
+      if (!res.ok) throw new Error('Request failed');
+
+      toast.success(product ? 'Product successfully updated!' : 'Product successfully created!');
+
       onClose();
       router.refresh();
+    } catch (err) {
+      toast.error('Something went wrong ❌');
     }
   };
 
@@ -198,15 +204,7 @@ export default function ProductModal({ isOpen, onClose, product }: AddProductMod
             >
               Cancel
             </button>
-            <button
-              onClick={() => {
-                product
-                  ? toast.success('Product successfully updated!')
-                  : toast.success('Product successfully created!');
-              }}
-              type="submit"
-              className="px-4 py-1.5 text-sm bg-red-600 text-white rounded hover:bg-red-700"
-            >
+            <button type="submit" className="px-4 py-1.5 text-sm bg-red-600 text-white rounded hover:bg-red-700">
               {product ? 'Update' : 'Save'}
             </button>
           </div>
